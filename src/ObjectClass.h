@@ -31,7 +31,11 @@ public:
         button,
         item,
         character,
-        background
+        background,
+        start,
+        quit,
+        restart,
+        play
     };
 
     Type type;

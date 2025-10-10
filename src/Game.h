@@ -1,4 +1,3 @@
-
 #ifndef PLATFORMER_GAME_H
 #define PLATFORMER_GAME_H
 
@@ -19,7 +18,7 @@ class Game
 
  private:
   sf::RenderWindow& window;
-  SceneHandler2 SFM;
+  SceneHandler2* SFM = new SceneHandler2;
 
 };
 

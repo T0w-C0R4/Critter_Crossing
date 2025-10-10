@@ -1,5 +1,5 @@
 #pragma once
-#include "Scene.h"
+#include "MainMenu.h"
 class SceneHandler2
 {
 
@@ -7,25 +7,29 @@ class SceneHandler2
 		SceneHandler2();
 		~SceneHandler2();
 
-		void ChangeScene(int next_scene);
-		void init();
+		void ChangeScene(int next_scene, sf::RenderWindow& window);
+		void init(sf::RenderWindow& window);
 		void update(float dt, sf::RenderWindow& window);
 		void render(sf::RenderWindow& window);
+		void removeCurrentScene();
+
+		void mouseInput(sf::Vector2i click_pos);
 		
 
 		enum CurrentScene {
-			MainMenu,
+			mainMenu,
 			Game,
 			Pause,
 			Win,
 			Lose
 		};
-		//clean Scene
+		
 		
 
 	private:
 
 
-		CurrentScene currentscene;
+		CurrentScene currentscene = SceneHandler2::CurrentScene::mainMenu;
+		MainMenu* main_menu = new MainMenu;
 		
 };

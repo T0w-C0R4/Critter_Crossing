@@ -1,10 +1,15 @@
 #include "Scene.h"
 
-Scene2::Scene2()
+Scene::Scene()
 {
 }
 
-Scene2::~Scene2()
+Scene::~Scene()
 {
+}
+
+bool Scene::initScene(sf::RenderWindow& window)
+{
+	return false;
 }
 

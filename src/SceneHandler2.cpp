@@ -8,19 +8,117 @@ SceneHandler2::~SceneHandler2()
 {
 }
 
-void SceneHandler2::init()
+void SceneHandler2::ChangeScene(int next_scene, sf::RenderWindow& window)
 {
-}
-
-void SceneHandler2::update(float dt, sf::RenderWindow& window)
-{
-}
-
-void SceneHandler2::ChangeScene(int next_scene)
-{
+	removeCurrentScene();
 	currentscene = static_cast<CurrentScene>(next_scene);
+	init(window);
 }
 
-void SceneHandler2::render(sf::RenderWindow& window)
+void SceneHandler2::init(sf::RenderWindow& window)
 {
+	switch (currentscene)
+	{
+	case SceneHandler2::mainMenu:
+		main_menu->initScene(window);
+		break;
+	case SceneHandler2::Game:
+		break;
+	case SceneHandler2::Pause:
+		break;
+	case SceneHandler2::Win:
+		break;
+	case SceneHandler2::Lose:
+		break;
+	default:
+		break;
+	}
+	
+
+	
 }
+void SceneHandler2::update(float dt, sf::RenderWindow& window) 
+{
+	switch (currentscene)
+	{
+	case SceneHandler2::mainMenu:
+		main_menu->update(dt, window);//changes states in update
+		if (main_menu->changeScene == true) 
+		{
+			ChangeScene(main_menu->next_scene,window);//changes to new scene based of new state
+		}
+		
+		break;
+	case SceneHandler2::Game:
+		break;
+	case SceneHandler2::Pause:
+		break;
+	case SceneHandler2::Win:
+		break;
+	case SceneHandler2::Lose:
+		break;
+	default:
+		break;
+	}
+}
+void SceneHandler2::render(sf::RenderWindow& window) 
+{
+	switch (currentscene)
+	{
+	case SceneHandler2::mainMenu:
+		main_menu->render(window);
+		break;
+	case SceneHandler2::Game:
+		break;
+	case SceneHandler2::Pause:
+		break;
+	case SceneHandler2::Win:
+		break;
+	case SceneHandler2::Lose:
+		break;
+	default:
+		break;
+	}
+}
+
+void SceneHandler2::removeCurrentScene()
+{
+	switch (currentscene)
+	{
+	case SceneHandler2::mainMenu:
+		delete main_menu;
+		break;
+	case SceneHandler2::Game:
+		break;
+	case SceneHandler2::Pause:
+		break;
+	case SceneHandler2::Win:
+		break;
+	case SceneHandler2::Lose:
+		break;
+	default:
+		break;
+	}
+}
+
+void SceneHandler2::mouseInput(sf::Vector2i click_pos)
+{
+	switch (currentscene)
+	{
+	case SceneHandler2::mainMenu:
+		main_menu->MouseInput = click_pos;
+		break;
+	case SceneHandler2::Game:
+		break;
+	case SceneHandler2::Pause:
+		break;
+	case SceneHandler2::Win:
+		break;
+	case SceneHandler2::Lose:
+		break;
+	default:
+		break;
+	}
+}
+
+
