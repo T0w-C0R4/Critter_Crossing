@@ -36,7 +36,7 @@ void MainMenu::update(float dt, sf::RenderWindow& window)
 			if (buttonslist[i]->type == ObjectClass::start) 
 			{
 				next_scene = 1;
-				return;
+
 			}
 			
 		}
