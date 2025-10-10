@@ -28,14 +28,14 @@ public:
 
     enum Type
     {
-        button,
-        item,
         character,
         background,
         start,
         quit,
         restart,
-        play
+        play,
+        passport,
+        stamp
     };
 
     Type type;
