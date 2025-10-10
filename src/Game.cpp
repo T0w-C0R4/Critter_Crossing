@@ -2,8 +2,7 @@
 #include "Game.h"
 #include <iostream>
 
-Game::Game(sf::RenderWindow& game_window)
-  : window(game_window)
+Game::Game(sf::RenderWindow& game_window): window(game_window)
 {
   srand(time(NULL));
 }

@@ -3,6 +3,8 @@
 #define PLATFORMER_GAME_H
 
 #include <SFML/Graphics.hpp>
+#include "ObjectClass.h"
+#include "SceneHandler2.h"
 
 class Game
 {
@@ -17,8 +19,7 @@ class Game
 
  private:
   sf::RenderWindow& window;
-  sf::Sprite ball;
-  sf::Texture ball_texture;
+  SceneHandler2 SFM;
 
 };
 
