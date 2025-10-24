@@ -1,5 +1,6 @@
 #pragma once
 #include "MainMenu.h"
+#include "ActiveGame.h"	
 class SceneHandler2
 {
 
@@ -31,5 +32,6 @@ class SceneHandler2
 
 		CurrentScene currentscene = SceneHandler2::CurrentScene::mainMenu;
 		MainMenu* main_menu = new MainMenu;
+		ActiveGame* active_game = new ActiveGame;
 		
 };

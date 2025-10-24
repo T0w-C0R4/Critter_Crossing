@@ -1,5 +1,6 @@
 #pragma once
 #include "ObjectClass.h"
+#include <vector>
 class Scene {
 
 public:
@@ -22,8 +23,10 @@ public:
 
 	sf::Vector2i MouseInput;
 
-
+	
 	
 
 	private:
+		//stores a unique pointer to the objects within the vector
+	std::vector<std::unique_ptr<ObjectClass>> state_obj;
 };

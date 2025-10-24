@@ -109,6 +109,7 @@ void SceneHandler2::mouseInput(sf::Vector2i click_pos)
 		main_menu->MouseInput = click_pos;
 		break;
 	case SceneHandler2::Game:
+		active_game->MouseInput = click_pos;
 		break;
 	case SceneHandler2::Pause:
 		break;
