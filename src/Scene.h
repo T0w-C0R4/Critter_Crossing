@@ -23,10 +23,6 @@ public:
 
 	sf::Vector2i MouseInput;
 
-	
-	
-
-	private:
 		//stores a unique pointer to the objects within the vector
 	std::vector<std::unique_ptr<ObjectClass>> state_obj;
 };

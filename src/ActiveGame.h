@@ -16,8 +16,8 @@ private:
 	/*person
 		passport
 		2stamps that stamp the passport
-		*/
-	Character *character = new Character;
+	*/
+	std::unique_ptr<Character> character;
 
 	//make spart pointer to a Vector of game objects used within this game state
 };

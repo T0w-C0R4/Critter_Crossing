@@ -2,11 +2,12 @@
 
 Scene::Scene()
 {
-	state_objects.reserve(10);
+	state_obj.reserve(10);
 }
 
 Scene::~Scene()
 {
+
 }
 
 
