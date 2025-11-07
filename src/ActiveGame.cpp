@@ -2,9 +2,12 @@
 
 bool ActiveGame::initScene(sf::RenderWindow& window) 
 {
+	state_obj.reserve(10);
 	//add every new pointer to the vector
 	character->init(window);
+	
 	state_obj.emplace_back(character);
+	
 	return true;
 }
 

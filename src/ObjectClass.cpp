@@ -1,15 +1,5 @@
 #include "ObjectClass.h"
 
-ObjectClass::ObjectClass()
-{
-}
-
-ObjectClass::~ObjectClass()
-{
-	delete vector;
-}
-
-
 bool ObjectClass::initialiseSprite(std::string filename)
 {
 	sprite = new sf::Sprite;

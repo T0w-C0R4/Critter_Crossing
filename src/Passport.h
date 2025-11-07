@@ -7,6 +7,8 @@ public:
     void update(float dt, sf::RenderWindow& window);
     void render(sf::RenderWindow& window);
     void handleEvent();
+    void getPassPhotoNSet(int rand);
 private:
-
+    sf::Sprite passport_photo;
+    sf::Texture pass_texture;
 };

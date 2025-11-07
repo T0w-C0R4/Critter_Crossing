@@ -56,7 +56,7 @@ bool MainMenu::clearState()
 {
 	for (int i = 0; i < 2; i++)
 	{
-		 delete buttonslist[i];
+		 buttonslist[i];
 	}
 	return false;
 }

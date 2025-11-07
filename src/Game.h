@@ -22,4 +22,4 @@ class Game
 
 };
 
-#endif // PLATFORMER_GAME_H
+#endif

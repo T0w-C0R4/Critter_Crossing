@@ -86,7 +86,7 @@ void SceneHandler2::removeCurrentScene()
 	switch (currentscene)
 	{
 	case SceneHandler2::mainMenu:
-		delete main_menu;
+		
 		break;
 	case SceneHandler2::Game:
 		break;

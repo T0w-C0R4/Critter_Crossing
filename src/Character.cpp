@@ -26,16 +26,20 @@ void Character::init(sf::RenderWindow& window)
 	sprite->setScale(1.8,1.8);
 	sprite->setPosition(window.getSize().x / 12, window.getSize().y / 12);
 	//initialise passport
+	passport->getPassPhotoNSet(rand_pass_sprite);
 }
 void Character::update(float dt, sf::RenderWindow& window) 
 {
+	
 	//player location
 	//passport location
+	passport->update(dt,window);
 
 }
 void Character::render(sf::RenderWindow& window) {
 	//render player first
 	window.draw(*sprite);
+	passport->render(window);
 	//when player is in frame propperly render the passport
 }
 void Character::handleEvent() 

@@ -7,8 +7,8 @@
 class ObjectClass
 {
 public:
-    ObjectClass();
-    ~ObjectClass();
+    ObjectClass() = default;
+    ~ObjectClass() = default;
 
     virtual void init(sf::RenderWindow& window) = 0;
     virtual void update(float dt, sf::RenderWindow& window) = 0;
