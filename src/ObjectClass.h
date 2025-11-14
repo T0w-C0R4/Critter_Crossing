@@ -22,8 +22,8 @@ public:
 
     Vector2* vector = new Vector2(0, 0);
 
-    bool visible;
-    float speed;
+    bool visible = true;
+    float speed = 0;
 
 
     enum Type

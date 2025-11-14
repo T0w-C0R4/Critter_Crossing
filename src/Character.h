@@ -10,10 +10,11 @@ public:
     void handleEvent();
 
     bool valid;
+    
 private:
 
     int rand_player_sprite;
     int rand_pass_sprite;
 
-    Passport *passport;
+    Passport* passport = nullptr;
 };

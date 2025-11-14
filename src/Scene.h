@@ -10,7 +10,7 @@ public:
 	int scene;
 
 	int number_of_objects = 0;
-	int next_scene;
+	int next_scene = 0;
 
 	bool changeScene = false;
 
@@ -24,5 +24,5 @@ public:
 	sf::Vector2i MouseInput;
 
 		//stores a unique pointer to the objects within the vector
-	std::vector<std::unique_ptr<ObjectClass>> state_obj;
+	std::vector<std::shared_ptr<ObjectClass>> state_obj;
 };

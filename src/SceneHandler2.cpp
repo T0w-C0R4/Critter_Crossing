@@ -23,6 +23,7 @@ void SceneHandler2::init(sf::RenderWindow& window)
 		main_menu->initScene(window);
 		break;
 	case SceneHandler2::Game:
+		active_game->initScene(window);
 		break;
 	case SceneHandler2::Pause:
 		break;
@@ -69,6 +70,7 @@ void SceneHandler2::render(sf::RenderWindow& window)
 		main_menu->render(window);
 		break;
 	case SceneHandler2::Game:
+		active_game->render(window);
 		break;
 	case SceneHandler2::Pause:
 		break;
@@ -86,7 +88,7 @@ void SceneHandler2::removeCurrentScene()
 	switch (currentscene)
 	{
 	case SceneHandler2::mainMenu:
-		
+		delete main_menu;
 		break;
 	case SceneHandler2::Game:
 		break;

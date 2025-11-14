@@ -4,7 +4,7 @@ void Character::init(sf::RenderWindow& window)
 {
 	rand_player_sprite = rand() % 3;
 	rand_pass_sprite = rand() % 3;
-
+	passport = new Passport;
 	if (rand_pass_sprite == rand_player_sprite) 
 	{
 		valid = true;
@@ -14,19 +14,20 @@ void Character::init(sf::RenderWindow& window)
 	switch (rand_player_sprite)
 	{
 	case 1:
-		initialiseSprite("..Data/Images/Critter Crossing Customs/Critter Crossing Customs/giraffe.png");
+		initialiseSprite("../Data/Images/Critter Crossing Customs/Critter Crossing Customs/giraffe.png");
 		break;
 	case 2:
-		initialiseSprite("..Data/Images/Critter Crossing Customs/Critter Crossing Customs/gorilla.png");
+		initialiseSprite("../Data/Images/Critter Crossing Customs/Critter Crossing Customs/gorilla.png");
 		break;
 	case 3:
-		initialiseSprite("..Data/Images/Critter Crossing Customs/Critter Crossing Customs/moose.png");
+		initialiseSprite("../Data/Images/Critter Crossing Customs/Critter Crossing Customs/moose.png");
 		break;
 	}
-	sprite->setScale(1.8,1.8);
-	sprite->setPosition(window.getSize().x / 12, window.getSize().y / 12);
+	//sprite->setScale(1.8,1.8);
+	//sprite->setPosition(window.getSize().x / 12, window.getSize().y / 12);
 	//initialise passport
 	passport->getPassPhotoNSet(rand_pass_sprite);
+	passport->init(window);
 }
 void Character::update(float dt, sf::RenderWindow& window) 
 {
