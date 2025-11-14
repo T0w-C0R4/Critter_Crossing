@@ -21,6 +21,8 @@ void Character::init(sf::RenderWindow& window)
 		break;
 	case 3:
 		initialiseSprite("../Data/Images/Critter Crossing Customs/Critter Crossing Customs/moose.png");
+		sprite->setScale(0.1,0.1);
+		sprite->setPosition(window.getSize().x / 2, window.getSize().y / 2);
 		break;
 	}
 	//sprite->setScale(1.8,1.8);
