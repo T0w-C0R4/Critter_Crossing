@@ -35,7 +35,8 @@ public:
         restart,
         play,
         passport,
-        stamp
+        stamp,
+        life
     };
 
     Type type;

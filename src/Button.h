@@ -9,5 +9,5 @@ public:
 	void render(sf::RenderWindow& window);
 	void handleEvent();
 
-	bool hasClicked(sf::Vector2i click);
+	bool hasClicked(sf::Vector2f click);
 };

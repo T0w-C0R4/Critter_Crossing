@@ -42,9 +42,11 @@ int main()
         window.close();
 
       if (event.type == sf::Event::MouseButtonReleased) 
-      {
-          game.mouseClicked(event);
-      }
+         game.mouseReleased(event);
+          
+      if (event.type == sf::Event::MouseButtonPressed)
+         game.mouseClicked(event);
+      
     }
 
 

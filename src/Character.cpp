@@ -13,23 +13,22 @@ void Character::init(sf::RenderWindow& window)
 
 	switch (rand_player_sprite)
 	{
+	case 0:
+		initialiseSprite("../Data/Images/Critter Crossing Customs/Critter Crossing Customs/penguin.png");
+		break;
 	case 1:
 		initialiseSprite("../Data/Images/Critter Crossing Customs/Critter Crossing Customs/giraffe.png");
 		break;
 	case 2:
 		initialiseSprite("../Data/Images/Critter Crossing Customs/Critter Crossing Customs/gorilla.png");
 		break;
-	case 3:
-		initialiseSprite("../Data/Images/Critter Crossing Customs/Critter Crossing Customs/moose.png");
-		sprite->setScale(0.1,0.1);
-		sprite->setPosition(window.getSize().x / 2, window.getSize().y / 2);
-		break;
 	}
-	//sprite->setScale(1.8,1.8);
-	//sprite->setPosition(window.getSize().x / 12, window.getSize().y / 12);
+	sprite->setScale(1.8,1.8);
+	sprite->setPosition(window.getSize().x / 12.f, window.getSize().y / 12.f);
 	//initialise passport
-	passport->getPassPhotoNSet(rand_pass_sprite);
 	passport->init(window);
+	passport->getPassPhotoNSet(rand_pass_sprite);
+	
 }
 void Character::update(float dt, sf::RenderWindow& window) 
 {
@@ -48,4 +47,11 @@ void Character::render(sf::RenderWindow& window) {
 void Character::handleEvent() 
 {
 	//move character in either direction based on accepted or rejected
+	passport->drag = false;
 }
+Passport* Character::getPassport()
+{
+	return passport;
+}
+
+

@@ -31,8 +31,19 @@ void Game::mouseClicked(sf::Event event)
 {
   //get the click position
   sf::Vector2i click = sf::Mouse::getPosition(window);
-  SFM->mouseInput(click);
+  sf::Vector2f clickf;
+  clickf.x = click.x;
+  clickf.y = click.y;
+  SFM->mouseInput(clickf);
 
+}
+
+void Game::mouseReleased(sf::Event event)
+{
+	sf::Vector2f release;
+	release.x = 0;
+	release.y = 0;
+	SFM->mouseInput(release);
 }
 
 void Game::keyPressed(sf::Event event)

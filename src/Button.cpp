@@ -58,7 +58,7 @@ void Buttons::render(sf::RenderWindow& window)
 
 void Buttons::handleEvent() {}
 
-bool Buttons::hasClicked(sf::Vector2i click)
+bool Buttons::hasClicked(sf::Vector2f click)
 {
     if (
         click.x < sprite->getGlobalBounds().getPosition().x +

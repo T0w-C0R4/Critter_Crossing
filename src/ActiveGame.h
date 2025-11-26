@@ -1,6 +1,8 @@
 #pragma once
 #include "Scene.h"
 #include "Character.h"
+#include "life.h"
+#include "ObjectClass.h"
 
 
 class ActiveGame :public Scene 
@@ -11,13 +13,16 @@ public:
 		void render(sf::RenderWindow& window);
 		bool clearState();
 
-		
+		int next_life = 0;
+		bool click;
+
 private:
 	/*person
 		passport
 		2stamps that stamp the passport
 	*/
 	std::shared_ptr<Character> character;
-
+	std::shared_ptr<Passport> char_passport;
+	ObjectClass* Life_counter[3];
 	//make spart pointer to a Vector of game objects used within this game state
 };

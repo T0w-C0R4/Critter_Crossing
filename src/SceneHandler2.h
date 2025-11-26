@@ -14,7 +14,7 @@ class SceneHandler2
 		void render(sf::RenderWindow& window);
 		void removeCurrentScene();
 
-		void mouseInput(sf::Vector2i click_pos);
+		void mouseInput(sf::Vector2f click_pos);
 		
 
 		enum CurrentScene {

@@ -51,6 +51,12 @@ void SceneHandler2::update(float dt, sf::RenderWindow& window)
 		
 		break;
 	case SceneHandler2::Game:
+		active_game->update(dt, window);
+		if (main_menu->changeScene == true)
+		{
+			ChangeScene(main_menu->next_scene, window);//changes to new scene based of new state
+		}
+		
 		break;
 	case SceneHandler2::Pause:
 		break;
@@ -103,7 +109,7 @@ void SceneHandler2::removeCurrentScene()
 	}
 }
 
-void SceneHandler2::mouseInput(sf::Vector2i click_pos)
+void SceneHandler2::mouseInput(sf::Vector2f click_pos)
 {
 	switch (currentscene)
 	{
