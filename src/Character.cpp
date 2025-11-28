@@ -4,7 +4,7 @@ void Character::init(sf::RenderWindow& window)
 {
 	rand_player_sprite = rand() % 3;
 	rand_pass_sprite = rand() % 3;
-	passport = new Passport;
+	passport = new Passport();
 	if (rand_pass_sprite == rand_player_sprite) 
 	{
 		valid = true;

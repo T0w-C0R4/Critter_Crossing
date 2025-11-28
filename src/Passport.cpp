@@ -28,6 +28,7 @@ void Passport::handleEvent()
 void Passport::getPassPhotoNSet(int rand)
 {
 
+
 		switch (rand)
 		{
 		case 0:

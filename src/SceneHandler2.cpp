@@ -118,6 +118,11 @@ void SceneHandler2::mouseInput(sf::Vector2f click_pos)
 		break;
 	case SceneHandler2::Game:
 		active_game->MouseInput = click_pos;
+		if (click_pos.x == 0.f && click_pos.y == 0.f)
+		{
+			active_game->click = false;
+		}
+		active_game->click = true;
 		break;
 	case SceneHandler2::Pause:
 		break;

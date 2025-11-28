@@ -36,7 +36,8 @@ public:
         play,
         passport,
         stamp,
-        life
+        life,
+
     };
 
     Type type;

@@ -2,14 +2,10 @@
 
 bool ActiveGame::initScene(sf::RenderWindow& window) 
 {
-	state_obj.reserve(10);
-	//add every new pointer to the vector
-	character = std::make_shared<Character>();
-	char_passport = std::make_shared<Passport>();
-	character->init(window);
-	
-	state_obj.push_back(std::move(character));
-	state_obj.push_back(std::move(char_passport));
+	//char_passport = std::make_shared<Passport>();
+	state_obj.emplace_back(std::make_shared<Character>());
+	state_obj[0].get()->init(window);
+	// state_obj.push_back(std::move(char_passport));
 	
 	for (int i = 0; i <= 2; i++)
 	{
@@ -29,13 +25,17 @@ bool ActiveGame::initScene(sf::RenderWindow& window)
 void ActiveGame::update(float dt, sf::RenderWindow& window) 
 {
 
-
+	if (click) 
+	{
+		state_obj[0].get()->getPassport()->clickCheck(MouseInput);
+		click = false;
+	}
 	//update everything within the Vector
 	for (int i = 0; state_obj.size() > i; i++)
 	{
 		state_obj[i].get()->update(dt,window);
 	}
-	character.get()->getPassport()->clickCheck(MouseInput);
+	state_obj[0].get()->getPassport();
 	
 }
 

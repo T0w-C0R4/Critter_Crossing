@@ -4,20 +4,21 @@
 class Character :public ObjectClass
 {
 public:
-    void init(sf::RenderWindow& window);
-    void update(float dt, sf::RenderWindow& window);
-    void render(sf::RenderWindow& window);
-    void handleEvent();
-    Passport* getPassport();
+	void init(sf::RenderWindow& window);
+	void update(float dt, sf::RenderWindow& window);
+	void render(sf::RenderWindow& window);
+	void handleEvent();
+	Passport* getPassport();
 
-    bool valid;
-    
-    Passport* passport = nullptr;
+	bool valid;
 
-private:
 
-    int rand_player_sprite;
-    int rand_pass_sprite;
 
-    
+protected:
+
+	Passport* passport = nullptr;
+	int rand_player_sprite;
+	int rand_pass_sprite;
+
+
 };
