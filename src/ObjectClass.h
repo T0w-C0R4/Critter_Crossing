@@ -37,7 +37,8 @@ public:
         passport,
         stamp,
         life,
-
+        accept,
+        reject
     };
 
     Type type;

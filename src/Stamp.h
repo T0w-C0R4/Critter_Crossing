@@ -1,6 +1,8 @@
 #pragma once
 #include "ObjectClass.h"
-class Stamp : ObjectClass 
+#include <SFML/System/Vector2.hpp>
+
+class Stamp : public ObjectClass 
 {
 public:
 
@@ -9,9 +11,17 @@ public:
     void render(sf::RenderWindow& window);
     void handleEvent();
 
+    void setPassRef(sf::Vector2f pos);
+    void deleteStamp();
 
 
+    bool clicked = false;
 
+    sf::Vector2f pass_pos_ref;
+    sf::Vector2f drag_offset;
 
-
+private:
+   
+    sf::Sprite stamp_inc;
+    sf::Texture stamp_inc_texture;
 };
