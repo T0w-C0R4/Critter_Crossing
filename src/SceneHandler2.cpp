@@ -97,6 +97,7 @@ void SceneHandler2::removeCurrentScene()
 		delete main_menu;
 		break;
 	case SceneHandler2::Game:
+		delete active_game;
 		break;
 	case SceneHandler2::Pause:
 		break;

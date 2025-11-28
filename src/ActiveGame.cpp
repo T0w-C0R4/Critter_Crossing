@@ -19,22 +19,19 @@ bool ActiveGame::initScene(sf::RenderWindow& window)
 		next_life++;
 
 	}
-	for (int i = 0; i <= 1; i++)
-	{
 
-		stamp[i] = new Stamp;
-		if (i == 1)
-		{
-			stamp[i]->type = ObjectClass::Type::accept;
-			
-		}
-		else
-		{
-			stamp[i]->type = ObjectClass::Type::reject;
-		}
+	
+		
+		
 
-		stamp[i]->init(window);
-	}
+		stamp[0] = new Stamp;
+		stamp[0]->type = ObjectClass::Type::accept;
+		stamp[0]->init(window);
+		
+		stamp[1] = new Stamp;
+		stamp[1]->type = ObjectClass::Type::reject;
+		stamp[1]->init(window);
+	
 	return true;
 }
 
@@ -77,8 +74,10 @@ void ActiveGame::render(sf::RenderWindow& window)
 	{
 		Life_counter[i]->render(window);
 	}
-	stamp[0]->render(window);
 	stamp[1]->render(window);
+	stamp[0]->render(window);
+
+	std::cout << "TEST" << std::endl;
 }
 
 bool ActiveGame::clearState() 

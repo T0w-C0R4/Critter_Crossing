@@ -2,7 +2,7 @@
 
 void Stamp::init(sf::RenderWindow& window)
 {
-	if (accept)
+	if (type == accept)
 	{
 		initialiseSprite("../Data/Images/Critter Crossing Customs/Critter Crossing Customs/accept button.png");
 
@@ -10,11 +10,12 @@ void Stamp::init(sf::RenderWindow& window)
 		{
 			std::cout<< "inc no load accept" << std::endl;
 		}
+		std::cout << "Initialised ACCEPT stamp" << std::endl;
 		stamp_inc.setTexture(stamp_inc_texture);
 		sprite->setPosition(1500 , 250);
 	
 	}
-	if (reject)
+	if (type == reject)
 	{
 		initialiseSprite("../Data/Images/Critter Crossing Customs/Critter Crossing Customs/reject button.png");
 
@@ -22,6 +23,7 @@ void Stamp::init(sf::RenderWindow& window)
 		{
 			std::cout << "inc no load reject" << std::endl;
 		}
+		std::cout << "Initialised REJECT stamp" << std::endl;
 		stamp_inc.setTexture(stamp_inc_texture);
 		sprite->setPosition(1500, 350);
 
