@@ -13,7 +13,8 @@ void life::render(sf::RenderWindow& window)
 	if (visible)
 	{
 		window.draw(*sprite);
-	}
+	} 
+
 	
 }
 void life::handleEvent()

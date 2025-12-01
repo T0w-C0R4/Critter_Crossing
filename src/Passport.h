@@ -20,5 +20,6 @@ public:
     bool drag = false;
 
     bool stamped = false;
+    bool correct_stamp = false;
 
 };

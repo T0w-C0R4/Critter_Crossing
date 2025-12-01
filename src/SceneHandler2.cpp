@@ -52,9 +52,9 @@ void SceneHandler2::update(float dt, sf::RenderWindow& window)
 		break;
 	case SceneHandler2::Game:
 		active_game->update(dt, window);
-		if (main_menu->changeScene == true)
+		if (active_game->changeScene == true)
 		{
-			ChangeScene(main_menu->next_scene, window);//changes to new scene based of new state
+			ChangeScene(active_game->next_scene, window);//changes to new scene based of new state
 		}
 		
 		break;

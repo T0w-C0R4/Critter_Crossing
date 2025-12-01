@@ -14,6 +14,9 @@ public:
     void setPassRef(sf::Vector2f pos);
     void deleteStamp();
 
+    bool hasClicked(sf::Vector2f pos);
+
+    int returnType();
 
     bool clicked = false;
 

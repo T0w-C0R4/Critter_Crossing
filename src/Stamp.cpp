@@ -12,7 +12,7 @@ void Stamp::init(sf::RenderWindow& window)
 		}
 		std::cout << "Initialised ACCEPT stamp" << std::endl;
 		stamp_inc.setTexture(stamp_inc_texture);
-		sprite->setPosition(1500 , 250);
+		sprite->setPosition(1500 , 100);
 	
 	}
 	if (type == reject)
@@ -36,7 +36,7 @@ void Stamp::update(float dt, sf::RenderWindow& window)
 {
 	if (clicked) 
 	{
-		stamp_inc.setPosition(pass_pos_ref);
+			stamp_inc.setPosition(pass_pos_ref - drag_offset);	
 	}
 	else
 	{
@@ -61,7 +61,8 @@ void Stamp::setPassRef(sf::Vector2f pos)
 	drag_offset.x = pos.x - stamp_inc.getGlobalBounds().getPosition().x;
 	drag_offset.y = pos.y - stamp_inc.getGlobalBounds().getPosition().y;
 
-	pass_pos_ref = pos - drag_offset;
+	pass_pos_ref = pos;
+	
 }
 
 void Stamp::deleteStamp()
@@ -75,4 +76,26 @@ void Stamp::deleteStamp()
 	}
 	
 
+}
+
+bool Stamp::hasClicked(sf::Vector2f pos)
+{
+	if (sprite->getGlobalBounds().contains(pos))
+	{
+		setPassRef(pos);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+int Stamp::returnType()
+{
+	if (type == ObjectClass::Type::accept) 
+	{
+		return 1;
+	}
+	return 0;
 }

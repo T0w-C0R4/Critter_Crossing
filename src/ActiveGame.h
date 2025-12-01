@@ -16,7 +16,9 @@ public:
 
 		int next_life = 0;
 		int next_stamp = 0;
+		int score = 0;
 		bool click;
+		
 
 private:
 	/*person
@@ -26,6 +28,6 @@ private:
 	std::shared_ptr<Character> character;
 	std::shared_ptr<Passport> char_passport;
 	ObjectClass* Life_counter[3];
-	ObjectClass* stamp[2];
+	Stamp* stamp[2];
 	//make spart pointer to a Vector of game objects used within this game state
 };

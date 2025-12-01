@@ -41,6 +41,7 @@ void ActiveGame::update(float dt, sf::RenderWindow& window)
 	if (click) 
 	{
 		state_obj[0].get()->getPassport()->clickCheck(MouseInput);
+		
 		click = false;
 	}
 	//update everything within the Vector
@@ -48,13 +49,62 @@ void ActiveGame::update(float dt, sf::RenderWindow& window)
 	{
 		state_obj[i].get()->update(dt,window);
 	}
-	state_obj[0].get()->getPassport();
+	//valid passport check
+	if (!click && state_obj[0].get()->getPassport()->stamped && state_obj[0].get()->getPassport()->getSprite()->getGlobalBounds().contains(state_obj[0].get()->getSprite()->getGlobalBounds().getPosition().x, state_obj[0].get()->getSprite()->getGlobalBounds().getPosition().y) && state_obj[0].get()->valid)
+	{
+		if (!state_obj[0].get()->getPassport()->correct_stamp)
+		{
+			state_obj[0].get()->init(window);
+			Life_counter[next_life - 1]->visible = false;
+			next_life--;
+		}
+		if (state_obj[0].get()->getPassport()->correct_stamp)
+		{
+			score++;
+			state_obj[0].get()->init(window);
+		}
+
+	}
+
+	//invalid passport check
+	else if (!click && state_obj[0].get()->getPassport()->stamped && state_obj[0].get()->getPassport()->getSprite()->getGlobalBounds().contains(state_obj[0].get()->getSprite()->getGlobalBounds().getPosition().x, state_obj[0].get()->getSprite()->getGlobalBounds().getPosition().y) && !state_obj[0].get()->valid)
+	{
+		if(state_obj[0].get()->getPassport()->correct_stamp)
+		{
+			state_obj[0].get()->init(window);
+			Life_counter[next_life-1]->visible = false;
+			next_life--;
+		}
+		if (!state_obj[0].get()->getPassport()->correct_stamp)
+		{
+			score++;
+			state_obj[0].get()->init(window);
+		}
+			
+	}
 
 	for (int i = 0; i <= 1; i++)
 	{
-		stamp[i]->update(dt,window);
+		if (stamp[i]->hasClicked(MouseInput) && !state_obj[0].get()->getPassport()->stamped)
+		{
+			stamp[i]->clicked = true;
+			state_obj[0].get()->getPassport()->stamped = true;
+			state_obj[0].get()->getPassport()->correct_stamp = stamp[i]->returnType();
+		}
+
+		stamp[i]->update(dt, window);
 	}
 	
+	if( next_life <= 0) //lose
+	{
+		changeScene = true;
+		next_scene = 4;
+	}
+	else if (score == 10) //win
+	{
+		changeScene = true;
+		next_scene = 3;
+	}
 }
 
 void ActiveGame::render(sf::RenderWindow& window) 
@@ -76,8 +126,6 @@ void ActiveGame::render(sf::RenderWindow& window)
 	}
 	stamp[1]->render(window);
 	stamp[0]->render(window);
-
-	std::cout << "TEST" << std::endl;
 }
 
 bool ActiveGame::clearState() 

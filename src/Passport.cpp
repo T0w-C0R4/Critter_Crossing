@@ -74,7 +74,7 @@ void Passport::clickCheck(sf::Vector2f click)
 		drag = true;
 		//set drag position
 		drag_position = click;
-		std::cout << "clicked" << std::endl;
+		
 
 		//make offset
 		drag_offset.x = click.x - sprite->getGlobalBounds().getPosition().x;
