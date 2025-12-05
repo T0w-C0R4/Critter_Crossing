@@ -43,7 +43,7 @@ void ActiveGame::update(float dt, sf::RenderWindow& window)
 {
 	initString(window, "current score: " + std::to_string(score), 2, 1.1);
 
-		
+
 
 
 	if (click)
