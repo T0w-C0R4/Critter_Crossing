@@ -23,8 +23,8 @@ public:
     sf::Vector2f pass_pos_ref;
     sf::Vector2f drag_offset;
 
-private:
+protected:
    
-    sf::Sprite stamp_inc;
-    sf::Texture stamp_inc_texture;
+    sf::Sprite* stamp_inc = nullptr;
+    sf::Texture* stamp_inc_texture = nullptr;
 };

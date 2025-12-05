@@ -20,7 +20,7 @@ public:
 	bool click;
 
 
-private:
+protected:
 
 	std::shared_ptr<Character> character;
 	std::shared_ptr<Passport> char_passport;

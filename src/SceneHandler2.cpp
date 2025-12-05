@@ -23,6 +23,7 @@ void SceneHandler2::init(sf::RenderWindow& window)
 		main_menu->initScene(window);
 		break;
 	case SceneHandler2::Game:
+		active_game = new ActiveGame;
 		active_game->initScene(window);
 		break;
 	case SceneHandler2::Pause:
@@ -30,6 +31,7 @@ void SceneHandler2::init(sf::RenderWindow& window)
 	case SceneHandler2::Win:
 		break;
 	case SceneHandler2::lose:
+		Lose_state = new Lose;
 		Lose_state->score = temp_score;
 		Lose_state->initScene(window);
 		

@@ -1,15 +1,16 @@
 #include"MainMenu.h"
 
 
-bool MainMenu::initScene(sf::RenderWindow& window) 
+bool MainMenu::initScene(sf::RenderWindow& window)
 {
-	
-	for (int i = 0; i < 2; i++) 
+	initString(window, "** welcome to: Critter-Crossing **", 2, 4);
+
+	for (int i = 0; i < 2; i++)
 	{
 		buttonslist[i] = new Buttons();
 		if (i == 0)
 		{
-			buttonslist [i] ->type = ObjectClass::Type::start;
+			buttonslist[i]->type = ObjectClass::Type::start;
 			buttonslist[i]->init(window);
 		}
 		else if (i == 1)
@@ -26,37 +27,38 @@ bool MainMenu::initScene(sf::RenderWindow& window)
 	return true;
 }
 
-void MainMenu::update(float dt, sf::RenderWindow& window) 
+void MainMenu::update(float dt, sf::RenderWindow& window)
 {
-	for (int i = 0; i < 2; i++) 
+	for (int i = 0; i < 2; i++)
 	{
-		if (buttonslist[i]->hasClicked(MouseInput)) 
+		if (buttonslist[i]->hasClicked(MouseInput))
 		{
 			changeScene = true;
-			if (buttonslist[i]->type == ObjectClass::start) 
+			if (buttonslist[i]->type == ObjectClass::start)
 			{
 				next_scene = 1;
 
 			}
-			
+
 		}
-		buttonslist[i]->update(dt,window);
+		buttonslist[i]->update(dt, window);
 	}
 }
 
-void MainMenu::render(sf::RenderWindow& window) 
+void MainMenu::render(sf::RenderWindow& window)
 {
 	for (int i = 0; i < 2; i++)
 	{
 		buttonslist[i]->render(window);
 	}
+	window.draw(*scene_text);
 }
 
 bool MainMenu::clearState()
 {
 	for (int i = 0; i < 2; i++)
 	{
-		 buttonslist[i];
+		buttonslist[i];
 	}
 	return false;
 }

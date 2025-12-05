@@ -2,11 +2,11 @@
 
 bool ActiveGame::initScene(sf::RenderWindow& window)
 {
-	//char_passport = std::make_shared<Passport>();
+
 	state_obj.emplace_back(std::make_shared<Character>());
 	state_obj[0].get()->init(window);
 	score = 0;
-	// state_obj.push_back(std::move(char_passport));
+
 
 	for (int i = 0; i <= 2; i++)
 	{
@@ -22,7 +22,10 @@ bool ActiveGame::initScene(sf::RenderWindow& window)
 	}
 
 
-
+	if (!initString(window, "current score: " + std::to_string(score), 2, 1.1))
+	{
+		std::cout << "string failed to initialise" << std::endl;
+	}
 
 
 	stamp[0] = new Stamp;
@@ -38,6 +41,10 @@ bool ActiveGame::initScene(sf::RenderWindow& window)
 
 void ActiveGame::update(float dt, sf::RenderWindow& window)
 {
+	initString(window, "current score: " + std::to_string(score), 2, 1.1);
+
+		
+
 
 	if (click)
 	{
@@ -89,6 +96,7 @@ void ActiveGame::update(float dt, sf::RenderWindow& window)
 		if (stamp[i]->hasClicked(MouseInput) && !state_obj[0].get()->getPassport()->stamped)
 		{
 			stamp[i]->clicked = true;
+			stamp[i]->setPassRef(state_obj[0].get()->getPassport()->getSprite()->getGlobalBounds().getPosition());
 			state_obj[0].get()->getPassport()->stamped = true;
 			state_obj[0].get()->getPassport()->correct_stamp = stamp[i]->returnType();
 		}
@@ -110,6 +118,7 @@ void ActiveGame::update(float dt, sf::RenderWindow& window)
 
 void ActiveGame::render(sf::RenderWindow& window)
 {
+	window.draw(*scene_text);
 
 	//render everything within the Vector
 	for (int i = 0; state_obj.size() > i; i++)

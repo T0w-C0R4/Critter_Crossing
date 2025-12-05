@@ -1,5 +1,7 @@
 #pragma once
 #include "Scene.h"
+#include "Button.h"
+
 class Lose : public Scene
 {
 public:
@@ -7,13 +9,9 @@ public:
 	void update(float dt, sf::RenderWindow& window);
 	void render(sf::RenderWindow& window);
 	bool clearState();
-	bool initString(sf::RenderWindow& window);
-
+	bool initButtons(sf::RenderWindow& window);
 	int score;
 
-private:
 
-	sf::Text score_text;
-	sf::Font score_font;
-
+	Buttons* buttonslist[2];
 };

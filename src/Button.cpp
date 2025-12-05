@@ -9,6 +9,9 @@ void Buttons::init(sf::RenderWindow& window)
     {
         initialiseSprite("../Data/Images/StartButton.png");
     }
+    else if (type == restart) {
+        initialiseSprite("../Data/images/RestartButton.png");
+    }
 }
 
 void Buttons::update(float dt, sf::RenderWindow& window)
@@ -26,16 +29,6 @@ void Buttons::update(float dt, sf::RenderWindow& window)
                 window.getSize().x / 2 - (sprite->getGlobalBounds().getSize().x / 2),
                 (window.getSize().y / 2) + sprite->getGlobalBounds().height + 10);
         }
-    }
-    else if (type == play)
-    {
-        texture->loadFromFile("../Data/Images/PlayButton.png");
-        sprite->setTexture(*texture);
-    }
-    else if (type == restart)
-    {
-        texture->loadFromFile("../Data/Images/RestartButton.png");
-        sprite->setTexture(*texture);
     }
     else
     {

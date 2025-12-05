@@ -8,5 +8,8 @@ public:
 	void update(float dt, sf::RenderWindow& window);
 	void render(sf::RenderWindow& window);
 	bool clearState();
+
+
+
 	Buttons* buttonslist[2];
 };
