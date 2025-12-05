@@ -29,7 +29,10 @@ void SceneHandler2::init(sf::RenderWindow& window)
 		break;
 	case SceneHandler2::Win:
 		break;
-	case SceneHandler2::Lose:
+	case SceneHandler2::lose:
+		Lose_state->score = temp_score;
+		Lose_state->initScene(window);
+		
 		break;
 	default:
 		break;
@@ -62,7 +65,12 @@ void SceneHandler2::update(float dt, sf::RenderWindow& window)
 		break;
 	case SceneHandler2::Win:
 		break;
-	case SceneHandler2::Lose:
+	case SceneHandler2::lose:
+		Lose_state->update(dt, window);
+		if (Lose_state->changeScene == true)
+		{
+			ChangeScene(Lose_state->next_scene, window);//changes to new scene based of new state
+		}
 		break;
 	default:
 		break;
@@ -82,7 +90,8 @@ void SceneHandler2::render(sf::RenderWindow& window)
 		break;
 	case SceneHandler2::Win:
 		break;
-	case SceneHandler2::Lose:
+	case SceneHandler2::lose:
+		Lose_state->render(window);
 		break;
 	default:
 		break;
@@ -97,13 +106,15 @@ void SceneHandler2::removeCurrentScene()
 		delete main_menu;
 		break;
 	case SceneHandler2::Game:
+		temp_score = active_game->score;
 		delete active_game;
 		break;
 	case SceneHandler2::Pause:
 		break;
 	case SceneHandler2::Win:
 		break;
-	case SceneHandler2::Lose:
+	case SceneHandler2::lose:
+		delete Lose_state;
 		break;
 	default:
 		break;
@@ -129,7 +140,8 @@ void SceneHandler2::mouseInput(sf::Vector2f click_pos)
 		break;
 	case SceneHandler2::Win:
 		break;
-	case SceneHandler2::Lose:
+	case SceneHandler2::lose:
+		Lose_state->MouseInput = click_pos;
 		break;
 	default:
 		break;

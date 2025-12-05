@@ -1,6 +1,7 @@
 #pragma once
 #include "MainMenu.h"
 #include "ActiveGame.h"	
+#include "lose.h"
 class SceneHandler2
 {
 
@@ -22,10 +23,10 @@ class SceneHandler2
 			Game,
 			Pause,
 			Win,
-			Lose
+			lose
 		};
 		
-		
+		int temp_score;
 
 	private:
 
@@ -33,5 +34,5 @@ class SceneHandler2
 		CurrentScene currentscene = SceneHandler2::CurrentScene::mainMenu;
 		MainMenu* main_menu = new MainMenu;
 		ActiveGame* active_game = new ActiveGame;
-		
+		Lose* Lose_state = new Lose;
 };

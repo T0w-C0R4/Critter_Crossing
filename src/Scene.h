@@ -2,6 +2,8 @@
 #include "ObjectClass.h"
 #include <vector>
 #include "Character.h"
+#include <string>
+
 class Scene {
 
 public:

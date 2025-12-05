@@ -1,12 +1,13 @@
 #include "ActiveGame.h"
 
-bool ActiveGame::initScene(sf::RenderWindow& window) 
+bool ActiveGame::initScene(sf::RenderWindow& window)
 {
 	//char_passport = std::make_shared<Passport>();
 	state_obj.emplace_back(std::make_shared<Character>());
 	state_obj[0].get()->init(window);
+	score = 0;
 	// state_obj.push_back(std::move(char_passport));
-	
+
 	for (int i = 0; i <= 2; i++)
 	{
 
@@ -20,34 +21,34 @@ bool ActiveGame::initScene(sf::RenderWindow& window)
 
 	}
 
-	
-		
-		
 
-		stamp[0] = new Stamp;
-		stamp[0]->type = ObjectClass::Type::accept;
-		stamp[0]->init(window);
-		
-		stamp[1] = new Stamp;
-		stamp[1]->type = ObjectClass::Type::reject;
-		stamp[1]->init(window);
-	
+
+
+
+	stamp[0] = new Stamp;
+	stamp[0]->type = ObjectClass::Type::accept;
+	stamp[0]->init(window);
+
+	stamp[1] = new Stamp;
+	stamp[1]->type = ObjectClass::Type::reject;
+	stamp[1]->init(window);
+
 	return true;
 }
 
-void ActiveGame::update(float dt, sf::RenderWindow& window) 
+void ActiveGame::update(float dt, sf::RenderWindow& window)
 {
 
-	if (click) 
+	if (click)
 	{
 		state_obj[0].get()->getPassport()->clickCheck(MouseInput);
-		
+
 		click = false;
 	}
 	//update everything within the Vector
 	for (int i = 0; state_obj.size() > i; i++)
 	{
-		state_obj[i].get()->update(dt,window);
+		state_obj[i].get()->update(dt, window);
 	}
 	//valid passport check
 	if (!click && state_obj[0].get()->getPassport()->stamped && state_obj[0].get()->getPassport()->getSprite()->getGlobalBounds().contains(state_obj[0].get()->getSprite()->getGlobalBounds().getPosition().x, state_obj[0].get()->getSprite()->getGlobalBounds().getPosition().y) && state_obj[0].get()->valid)
@@ -58,7 +59,7 @@ void ActiveGame::update(float dt, sf::RenderWindow& window)
 			Life_counter[next_life - 1]->visible = false;
 			next_life--;
 		}
-		if (state_obj[0].get()->getPassport()->correct_stamp)
+		else if (state_obj[0].get()->getPassport()->correct_stamp)
 		{
 			score++;
 			state_obj[0].get()->init(window);
@@ -69,18 +70,18 @@ void ActiveGame::update(float dt, sf::RenderWindow& window)
 	//invalid passport check
 	else if (!click && state_obj[0].get()->getPassport()->stamped && state_obj[0].get()->getPassport()->getSprite()->getGlobalBounds().contains(state_obj[0].get()->getSprite()->getGlobalBounds().getPosition().x, state_obj[0].get()->getSprite()->getGlobalBounds().getPosition().y) && !state_obj[0].get()->valid)
 	{
-		if(state_obj[0].get()->getPassport()->correct_stamp)
+		if (state_obj[0].get()->getPassport()->correct_stamp)
 		{
 			state_obj[0].get()->init(window);
-			Life_counter[next_life-1]->visible = false;
+			Life_counter[next_life - 1]->visible = false;
 			next_life--;
 		}
-		if (!state_obj[0].get()->getPassport()->correct_stamp)
+		else if (!state_obj[0].get()->getPassport()->correct_stamp)
 		{
 			score++;
 			state_obj[0].get()->init(window);
 		}
-			
+
 	}
 
 	for (int i = 0; i <= 1; i++)
@@ -94,8 +95,8 @@ void ActiveGame::update(float dt, sf::RenderWindow& window)
 
 		stamp[i]->update(dt, window);
 	}
-	
-	if( next_life <= 0) //lose
+
+	if (next_life <= 0) //lose
 	{
 		changeScene = true;
 		next_scene = 4;
@@ -107,18 +108,18 @@ void ActiveGame::update(float dt, sf::RenderWindow& window)
 	}
 }
 
-void ActiveGame::render(sf::RenderWindow& window) 
+void ActiveGame::render(sf::RenderWindow& window)
 {
-	
+
 	//render everything within the Vector
-	for (int i = 0; state_obj.size() > i; i++) 
+	for (int i = 0; state_obj.size() > i; i++)
 	{
-		
+
 		if (state_obj[i].get()->getSprite() != NULL)
 		{
 			state_obj[i].get()->render(window);
 		}
-		
+
 	}
 	for (int i = 0; i <= 2; i++)
 	{
@@ -128,7 +129,7 @@ void ActiveGame::render(sf::RenderWindow& window)
 	stamp[0]->render(window);
 }
 
-bool ActiveGame::clearState() 
+bool ActiveGame::clearState()
 {
 	//delete everything within the Vector
 
