@@ -2,6 +2,8 @@
 #include "MainMenu.h"
 #include "ActiveGame.h"	
 #include "lose.h"
+#include "Win.h"
+
 class SceneHandler2
 {
 
@@ -22,7 +24,7 @@ class SceneHandler2
 			mainMenu,
 			Game,
 			Pause,
-			Win,
+			win,
 			lose
 		};
 		
@@ -35,4 +37,5 @@ class SceneHandler2
 		MainMenu* main_menu = new MainMenu;
 		ActiveGame* active_game = new ActiveGame;
 		Lose* Lose_state = new Lose;
+		Win* Win_state = new Win;
 };
